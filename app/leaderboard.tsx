@@ -20,7 +20,16 @@ export default function LeaderboardScreen() {
         })
   )
     .slice()
-    .sort((a, b) => b.accuracy - a.accuracy);
+    .sort((a, b) => b.accuracy - a.accuracy)
+    .map((entry, index) => {
+      const newRank = index + 1;
+      return {
+        ...entry,
+        rank: newRank,
+        // In filtered views we have no historical rank data, so suppress movement arrows
+        previousRank: selected === 'Overall' ? entry.previousRank : newRank,
+      };
+    });
 
   return (
     <SafeAreaView style={styles.safe} edges={['bottom']}>
