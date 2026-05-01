@@ -20,8 +20,7 @@ export default function LeaderboardScreen() {
         })
   )
     .slice()
-    .sort((a, b) => b.accuracy - a.accuracy)
-    .map((entry, index) => ({ ...entry, rank: index + 1 }));
+    .sort((a, b) => b.accuracy - a.accuracy);
 
   return (
     <SafeAreaView style={styles.safe} edges={['bottom']}>
@@ -32,7 +31,7 @@ export default function LeaderboardScreen() {
       <FlatList
         data={filteredEntries}
         keyExtractor={(item) => item.analystId}
-        renderItem={({ item }) => <LeaderboardRow entry={item} rank={item.rank} />}
+        renderItem={({ item }) => <LeaderboardRow entry={item} />}
         contentContainerStyle={styles.list}
       />
     </SafeAreaView>

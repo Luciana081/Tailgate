@@ -4,17 +4,16 @@ import { LeaderboardEntry } from '../lib/types';
 
 interface Props {
   entry: LeaderboardEntry;
-  rank: number;
 }
 
-export default function LeaderboardRow({ entry, rank }: Props) {
-  const movement = entry.previousRank - rank;
+export default function LeaderboardRow({ entry }: Props) {
+  const movement = entry.previousRank - entry.rank;
   const movementIcon = movement > 0 ? '▲' : movement < 0 ? '▼' : '—';
   const movementColor = movement > 0 ? '#2ecc71' : movement < 0 ? '#e74c3c' : '#666';
 
   return (
     <View style={styles.row}>
-      <Text style={styles.rankNum}>{rank}</Text>
+      <Text style={styles.rankNum}>{entry.rank}</Text>
       <Text style={[styles.movement, { color: movementColor }]}>{movementIcon}</Text>
       <View style={styles.info}>
         <Text style={styles.name}>{entry.analystName}</Text>
