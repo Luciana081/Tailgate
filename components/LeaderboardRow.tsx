@@ -19,7 +19,7 @@ export default function LeaderboardRow({ entry }: Props) {
         <Text style={styles.name}>{entry.analystName}</Text>
         <View style={styles.perfRow}>
           {entry.recentPerformance.map((p, i) => (
-            <View key={i} style={[styles.dot, p === 'W' ? styles.dotWin : styles.dotLoss]} />
+            <View key={i} style={[styles.dot, p === 'W' ? styles.dotWin : p === 'D' ? styles.dotDraw : styles.dotLoss]} />
           ))}
         </View>
       </View>
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
   },
   dotWin: { backgroundColor: '#2ecc71' },
   dotLoss: { backgroundColor: '#e74c3c' },
+  dotDraw: { backgroundColor: '#e67e22' },
   stats: {
     alignItems: 'flex-end',
     marginRight: 8,
