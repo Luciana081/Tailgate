@@ -32,7 +32,7 @@ export default function LeaderboardScreen() {
       <FlatList
         data={filteredEntries}
         keyExtractor={(item) => item.analystId}
-        renderItem={({ item, index }) => <LeaderboardRow entry={item} rank={index + 1} />}
+        renderItem={({ item }) => <LeaderboardRow entry={item} rank={item.rank} />}
         contentContainerStyle={styles.list}
       />
     </SafeAreaView>

@@ -50,12 +50,12 @@ export default function GameCard({ game }: Props) {
       <View style={styles.formRow}>
         <View style={styles.formGroup}>
           {game.recentFormAway.map((r, i) => (
-            <View key={i} style={[styles.dot, r === 'W' ? styles.dotWin : styles.dotLoss]} />
+            <View key={i} style={[styles.dot, r === 'W' ? styles.dotWin : r === 'D' ? styles.dotDraw : styles.dotLoss]} />
           ))}
         </View>
         <View style={styles.formGroup}>
           {game.recentFormHome.map((r, i) => (
-            <View key={i} style={[styles.dot, r === 'W' ? styles.dotWin : styles.dotLoss]} />
+            <View key={i} style={[styles.dot, r === 'W' ? styles.dotWin : r === 'D' ? styles.dotDraw : styles.dotLoss]} />
           ))}
         </View>
       </View>
@@ -174,6 +174,7 @@ const styles = StyleSheet.create({
   },
   dotWin: { backgroundColor: '#2ecc71' },
   dotLoss: { backgroundColor: '#e74c3c' },
+  dotDraw: { backgroundColor: '#e67e22' },
   trend: {
     color: '#a0a0a0',
     fontSize: 11,
