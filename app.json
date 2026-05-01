@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Tailgate",
+    "slug": "tailgate",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "tailgate",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tailgate.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1a1a2e"
+      },
+      "package": "com.tailgate.app"
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
